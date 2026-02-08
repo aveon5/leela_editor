@@ -45,7 +45,7 @@ export default function Editor({ cardId, onClose }) {
                     </button>
                     <div>
                         <h1 className="text-xl font-bold text-gray-900 dark:text-gray-100">
-                            Editing Card #{cardId}: {currentCard.title || 'Untitled'}
+                            Karte bearbeiten #{cardId}: {currentCard.title || 'Ohne Titel'}
                         </h1>
                     </div>
                 </div>
@@ -77,7 +77,7 @@ export default function Editor({ cardId, onClose }) {
                         )}
                     >
                         <Save className="w-4 h-4" />
-                        {loading ? 'Saving...' : 'Save Changes'}
+                        {loading ? 'Speichert...' : 'Speichern'}
                     </button>
                 </div>
             </header>
@@ -92,11 +92,11 @@ export default function Editor({ cardId, onClose }) {
 
                     <div className="space-y-4">
                         <div>
-                            <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wider mb-2">Metadata</h3>
+                            <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wider mb-2">Metadaten</h3>
                             <div className="bg-gray-50 dark:bg-gray-900 p-3 rounded-lg text-sm font-mono text-gray-600 dark:text-gray-300">
                                 ID: {cardId}<br />
-                                Lang: {activeLang.toUpperCase()}<br />
-                                Status: Loaded
+                                Sprache: {activeLang.toUpperCase()}<br />
+                                Status: Geladen
                             </div>
                         </div>
                     </div>
@@ -107,8 +107,8 @@ export default function Editor({ cardId, onClose }) {
                     {/* Tabs */}
                     <div className="flex border-b bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm px-6">
                         {[
-                            { id: 'card', label: 'Card Information', icon: BookOpen },
-                            { id: 'wisdom', label: 'Daily Wisdom', icon: Sparkles },
+                            { id: 'card', label: 'Karteninfo', icon: BookOpen },
+                            { id: 'wisdom', label: 'Tagesweisheit', icon: Sparkles },
                         ].map(tab => (
                             <button
                                 key={tab.id}
@@ -132,7 +132,7 @@ export default function Editor({ cardId, onClose }) {
                             <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
                                 {/* Title */}
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Title</label>
+                                    <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Titel</label>
                                     <input
                                         className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 dark:bg-gray-800 text-lg font-bold"
                                         value={currentCard.title || ''}
@@ -142,7 +142,7 @@ export default function Editor({ cardId, onClose }) {
 
                                 {/* Description */}
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Description</label>
+                                    <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Beschreibung</label>
                                     <textarea
                                         className="w-full h-32 px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 dark:bg-gray-800"
                                         value={currentCard.description || ''}
@@ -153,7 +153,7 @@ export default function Editor({ cardId, onClose }) {
                                 {/* Questions */}
                                 <div className="space-y-2">
                                     <label className="text-sm font-medium text-gray-700 dark:text-gray-300 flex items-center gap-2">
-                                        <HelpCircle className="w-4 h-4" /> Questions
+                                        <HelpCircle className="w-4 h-4" /> Fragen
                                     </label>
                                     <textarea
                                         className="w-full h-24 px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 dark:bg-gray-800"
@@ -184,7 +184,7 @@ export default function Editor({ cardId, onClose }) {
                                             className="text-xs text-indigo-600 font-medium hover:underline"
                                             onClick={() => handleCardChange(themeArrayKey, [...(currentCard[themeArrayKey] || []), ''])}
                                         >
-                                            + Add Item
+                                            + Element hinzufügen
                                         </button>
                                     </div>
                                 ))}
@@ -194,12 +194,12 @@ export default function Editor({ cardId, onClose }) {
                         {activeTab === 'wisdom' && (
                             <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
                                 <div className="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg border border-amber-200 text-amber-800 dark:text-amber-200 text-sm mb-6">
-                                    This content appears in the "Daily Wisdom" section of the app.
+                                    Dieser Inhalt erscheint im Bereich "Tagesweisheit" der App.
                                 </div>
 
                                 {/* Daily Wisdom */}
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Daily Wisdom Text</label>
+                                    <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Text der Tagesweisheit</label>
                                     <textarea
                                         className="w-full h-24 px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 dark:bg-gray-800"
                                         value={currentWisdom.daily_wisdom || ''}
@@ -209,7 +209,7 @@ export default function Editor({ cardId, onClose }) {
 
                                 {/* Citation */}
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Citation (Short)</label>
+                                    <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Zitat (Kurz)</label>
                                     <input
                                         className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 dark:bg-gray-800 font-serif italic"
                                         value={currentWisdom.citation || ''}
@@ -219,7 +219,7 @@ export default function Editor({ cardId, onClose }) {
 
                                 {/* External Citation */}
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Author Quote</label>
+                                    <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Autorenzitat</label>
                                     <textarea
                                         className="w-full h-20 px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 dark:bg-gray-800"
                                         value={currentWisdom.external_citation || ''}
@@ -229,9 +229,9 @@ export default function Editor({ cardId, onClose }) {
 
                                 {/* Practice */}
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Daily Practice</label>
+                                    <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Tägliche Praxis</label>
                                     <textarea
-                                        className="w-full h-24 px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 dark:bg-gray-800 bg-indigo-50 dark:bg-indigo-900/20 border-indigo-100"
+                                        className="w-full h-24 px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 dark:bg-indigo-900/20 border-indigo-100"
                                         value={currentWisdom.daily_practice || ''}
                                         onChange={e => handleWisdomChange('daily_practice', e.target.value)}
                                     />

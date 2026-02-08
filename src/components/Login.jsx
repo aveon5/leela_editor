@@ -33,10 +33,10 @@ export default function Login() {
             <div className="w-full max-w-md space-y-8 rounded-xl bg-white p-8 shadow-2xl dark:bg-gray-800">
                 <div className="text-center">
                     <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
-                        Sign in to Leela Editor
+                        Beim Leela Editor anmelden
                     </h2>
                     <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
-                        Enter your GitHub Personal Access Token to access the repository.
+                        Geben Sie Ihr GitHub Personal Access Token ein, um auf das Repository zuzugreifen.
                     </p>
                 </div>
 
@@ -63,7 +63,7 @@ export default function Login() {
                                 type="text"
                                 required
                                 className="relative block w-full border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-                                placeholder="Repository Owner (Username)"
+                                placeholder="Repository Eigentümer (Benutzername)"
                                 value={repoOwner}
                                 onChange={(e) => setRepoOwner(e.target.value)}
                             />
@@ -98,7 +98,7 @@ export default function Login() {
                             {loading ? (
                                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                             ) : (
-                                "Sign in"
+                                "Anmelden"
                             )}
                         </button>
                     </div>
